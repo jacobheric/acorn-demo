@@ -2,7 +2,7 @@ export const quoteOrder = ({
   items,
   discountPercent = 0,
   shippingCents = 0,
-}) => {
+} = {}) => {
   if (!Array.isArray(items) || items.length === 0)
     throw new Error("Add at least one item");
   if (
