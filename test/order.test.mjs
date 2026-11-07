@@ -54,6 +54,11 @@ test("rejects fractional quantities", () =>
     () => quoteOrder({ items: [{ priceCents: 100, quantity: 1.5 }] }),
     /Quantity/,
   ));
+test("rejects zero quantities", () =>
+  assert.throws(
+    () => quoteOrder({ items: [{ priceCents: 100, quantity: 0 }] }),
+    /Quantity/,
+  ));
 test("rejects negative prices", () =>
   assert.throws(
     () => quoteOrder({ items: [{ priceCents: -100, quantity: 1 }] }),
