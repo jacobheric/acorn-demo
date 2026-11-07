@@ -90,3 +90,7 @@ test("rejects totals beyond safe integer precision", () =>
       }),
     /too large/,
   ));
+
+test("allows a free item without changing the total", () => {
+  assert.equal(quoteOrder({items: [{priceCents: 1000, quantity: 1}, {priceCents: 0, quantity: 2}]}).totalCents, 1000);
+});
