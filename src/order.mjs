@@ -22,7 +22,7 @@ export const quoteOrder = ({
     if (!Number.isSafeInteger(next)) throw new Error("Order is too large");
     return next;
   }, 0);
-  const discountCents = Math.round((subtotalCents * discountPercent) / 100);
+  const discountCents = Math.floor((subtotalCents * discountPercent) / 100);
   const totalCents = subtotalCents - discountCents + shippingCents;
   if (!Number.isSafeInteger(totalCents)) throw new Error("Order is too large");
   return { subtotalCents, discountCents, shippingCents, totalCents };
