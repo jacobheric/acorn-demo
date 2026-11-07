@@ -9,3 +9,7 @@ test("a free item still pays shipping", () => {
 test("a free order without shipping costs zero", () => {
   assert.equal(quoteOrder({ items: [{ priceCents: 0, quantity: 2 }] }).totalCents, 0);
 });
+
+test("shipping is charged once for multiple free items", () => {
+  assert.equal(quoteOrder({ items: [{ priceCents: 0, quantity: 3 }], shippingCents: 250 }).totalCents, 250);
+});
