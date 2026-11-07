@@ -5,7 +5,3 @@ import { quoteOrder } from "../src/order.mjs";
 test("a free item still pays shipping", () => {
   assert.equal(quoteOrder({ items: [{ priceCents: 0, quantity: 1 }], shippingCents: 250 }).totalCents, 250);
 });
-
-test("slow CI fixture for supersession", async () => {
-  await new Promise(resolve => setTimeout(resolve, 120_000));
-});
